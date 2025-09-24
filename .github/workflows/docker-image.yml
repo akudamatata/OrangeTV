@@ -60,7 +60,7 @@ jobs:
         uses: docker/metadata-action@v5
 
         with:
-          images: ghcr.io/moontechlab/lunatv
+          images: ghcr.io/akudamatata/orangetv
           tags: |
             type=raw,value=${{ github.event.inputs.tag || 'latest' }},enable={{is_default_branch}}
 
@@ -72,7 +72,7 @@ jobs:
           file: ./Dockerfile
           platforms: ${{ matrix.platform }}
           labels: ${{ steps.meta.outputs.labels }}
-          tags: ghcr.io/moontechlab/lunatv:${{ github.event.inputs.tag || 'latest' }}
+          tags: ghcr.io/akudamatata/orangetv:${{ github.event.inputs.tag || 'latest' }}
           outputs: type=image,name=ghcr.io/moontechlab/lunatv,name-canonical=true,push=true
 
       - name: Export digest
